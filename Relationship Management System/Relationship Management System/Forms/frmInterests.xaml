@@ -1,0 +1,23 @@
+﻿<Window x:Class="Relationship_Management_System.Forms.frmInterests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Relationship_Management_System.Forms"
+		xmlns:database="clr-namespace:Relationship_Management_System.Database"
+        mc:Ignorable="d"
+        Title="Interests" Height="430.028" Width="620.397">
+	<Grid>
+		<DataGrid x:Name="dgdInterests" Height="139" Margin="10,10,10,0" VerticalAlignment="Top" d:DataContext="{d:DesignInstance Type=database:Interest}" AutoGenerateColumns="False">
+			<DataGrid.Columns>
+				<DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="*"/>
+			</DataGrid.Columns>
+		</DataGrid>
+		
+		<Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
+		<Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="527,369,0,0" VerticalAlignment="Top" Width="75" Click="btnRemove_Click"/>
+		<Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="269,369,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+		<TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="102,237,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding SelectedItem.Name, ElementName=dgdInterests}"/>
+		<Label Content="Name" HorizontalAlignment="Left" Margin="59,233,0,0" VerticalAlignment="Top"/>
+	</Grid>
+</Window>

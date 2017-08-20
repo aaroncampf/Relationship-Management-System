@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Relationship_Management_System.Forms"
         mc:Ignorable="d"
-        Title="frmGenerateMessage" Height="300" Width="300">
-    <Grid>
-        
-    </Grid>
+        Title="frmGenerateMessage" Height="111.331" Width="310.198" Deactivated="Window_Deactivated">
+	<Grid>
+		<Label Content="URL" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+		<TextBox x:Name="txtURL" HorizontalAlignment="Left" Height="65" Margin="36,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" TextChanged="txtURL_TextChanged"/>
+
+	</Grid>
 </Window>

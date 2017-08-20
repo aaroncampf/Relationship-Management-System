@@ -8,5 +8,8 @@ namespace Relationship_Management_System.Database {
   public class Interest {
     public int Id { get; set; }
     public string Name { get; set; }
+    public string Message { get; set; }
+
+
   }
 }

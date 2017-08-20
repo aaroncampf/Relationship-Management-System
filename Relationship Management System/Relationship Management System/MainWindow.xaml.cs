@@ -28,5 +28,10 @@ namespace Relationship_Management_System {
 
 
     }
+
+    private void btnGenerateMessage_Click(object sender, RoutedEventArgs e) {
+      var Form = new Forms.frmGenerateMessage();
+      Form.ShowDialog();
+    }
   }
 }

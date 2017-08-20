@@ -94,9 +94,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\Message.cs" />
+    <Compile Include="Database\Contact.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\ContactedProfiles.cs" />
     <Compile Include="Database\Interest.cs" />
+    <Compile Include="Database\RelationshipState.cs" />
     <Compile Include="Forms\frmGenerateMessage.xaml.cs">
       <DependentUpon>frmGenerateMessage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +150,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="..\..\Project Plans.docx">
+      <Link>Project Plans.docx</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

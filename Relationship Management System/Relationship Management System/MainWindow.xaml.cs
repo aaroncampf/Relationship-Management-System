@@ -14,24 +14,26 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Relationship_Management_System {
-  /// <summary>
-  /// Interaction logic for MainWindow.xaml
-  /// </summary>
-  public partial class MainWindow : Window {
-    public MainWindow() {
-      InitializeComponent();
-    }
+	/// <summary>
+	/// Interaction logic for MainWindow.xaml
+	/// </summary>
+	public partial class MainWindow : Window {
+		public MainWindow() {
+			InitializeComponent();
+		}
 
-    private void btnEditInterests_Click(object sender, RoutedEventArgs e) {
-      var Form = new Forms.frmInterests();
-      Form.ShowDialog();
+		private void btnEditInterests1_Click(object sender, RoutedEventArgs e) {
+			var Form = new Forms.frmInterests();
+			Form.ShowDialog();
+		}
 
+		private void btnGenerateMessage1_Click(object sender, RoutedEventArgs e) {
+			var Form = new Forms.frmGenerateMessage();
+			Form.ShowDialog();
+		}
 
-    }
-
-    private void btnGenerateMessage_Click(object sender, RoutedEventArgs e) {
-      var Form = new Forms.frmGenerateMessage();
-      Form.ShowDialog();
-    }
-  }
+		private void btnTest_Click(object sender, RoutedEventArgs e) {
+			testDock.Children.Add(new Forms.frmGenerateMessage());
+		}
+	}
 }

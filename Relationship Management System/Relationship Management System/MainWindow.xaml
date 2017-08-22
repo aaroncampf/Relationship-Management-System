@@ -5,10 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Relationship_Management_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-	<Grid>
-		<Button x:Name="btnEditInterests"  Content="Edit Interests" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="130" Click="btnEditInterests_Click"/>
-		<Button x:Name="btnGenerateMessage" Content="Generate Message" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="130" Click="btnGenerateMessage_Click"/>
+        Title="MainWindow" Height="518" Width="888">
+    <Grid>
+        <Ribbon x:Name="Ribbon" Height="140" VerticalAlignment="Top">
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu>
+                    <RibbonApplicationMenuItem Header="Hello _Ribbon"
+                                                      x:Name="MenuItem1" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <RibbonTab x:Name="HomeTab" Header="Home">
+                <RibbonGroup x:Name="Group1" Header="Group1">
+                    <RibbonButton x:Name="btnEditInterests1" Label="Edit Interests" Height="18" VerticalAlignment="Top" Click="btnEditInterests1_Click" />
+                    <RibbonButton x:Name="btnGenerateMessage1" Label="Generate Message" Click="btnGenerateMessage1_Click" />
+                    <RibbonButton x:Name="btnTest" Label="Test" Click="btnTest_Click" />
+                </RibbonGroup>
+            </RibbonTab>
+            <RibbonTab Header="Test">
 
-	</Grid>
+            </RibbonTab>
+
+        </Ribbon>
+
+
+        <DockPanel x:Name="testDock" HorizontalAlignment="Left" Height="155" LastChildFill="False" Margin="138,220,0,0" VerticalAlignment="Top" Width="420">
+            <Label Content="Try embedding windows in here!" Height="100" VerticalAlignment="Top"/>
+
+        </DockPanel>
+    </Grid>
 </Window>

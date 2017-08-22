@@ -20,13 +20,18 @@ namespace Relationship_Management_System.Database {
     public virtual DbSet<Interest> Interests { get; set; }
     public virtual DbSet<ContactedProfiles> ContactedProfiles { get; set; }
     public virtual DbSet<ProCon> ProsCons { get; set; }
+    public virtual DbSet<Contact> Contacts { get; set; }
+    public virtual DbSet<SocialLink> SocialLinks { get; set; }
+    private DbSet<Setting> Settings { get; set; }
 
+    public Setting Setting {
+      get {
+        if (!Settings.Any()) {
+          Settings.Add(new Setting());
+        }
 
+        return Settings.FirstOrDefault();
+      }
+    }
   }
-
-  //public class MyEntity
-  //{
-  //    public int Id { get; set; }
-  //    public string Name { get; set; }
-  //}
 }

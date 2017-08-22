@@ -17,9 +17,6 @@ namespace Relationship_Management_System.Database {
     public HashSet<PersonalDetail> PersonalDetails { get; set; }
     public HashSet<ProCon> ProCons { get; set; }
 
-
-    //TODO: Add ProCon
-
     public Contact() {
       PersonalDetails = new HashSet<PersonalDetail>();
       ProCons = new HashSet<ProCon>();

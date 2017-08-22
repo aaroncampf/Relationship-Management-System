@@ -1,0 +1,59 @@
+﻿<Window x:Class="Relationship_Management_System.Forms.frmContacts"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Relationship_Management_System"
+        xmlns:database="clr-namespace:Relationship_Management_System.Database"
+        Title="frmContacts" Height="705" Width="923">
+    <Grid>
+        <DataGrid x:Name="dgdContacts" Margin="10,10,10,353">
+            <!-- d:DataContext="{d:DesignInstance Type=database:Contact}" -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="100" SortDirection="Descending"/>
+                <DataGridTextColumn Binding="{Binding Path=Status}" Header="Status" Width="*"/>
+                <DataGridHyperlinkColumn Binding="{Binding Path=Profile}" Header="Profile">
+                    <DataGridHyperlinkColumn.ElementStyle>
+                        <Style>
+                            <EventSetter Event="Hyperlink.Click" Handler="DG_Hyperlink_Click"/>
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>
+                </DataGridHyperlinkColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TabControl Height="338" VerticalAlignment="Bottom" Margin="10,0,10,10">
+            <TabItem Header="Details">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="63,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.Name}"/>
+                    <Label Content="Address" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="63,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.Address}"/>
+                    <Label Content="City" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="63,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.City}"/>
+                    <Label Content="State" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="63,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.State}"/>
+                    <Label Content="Zip" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="63,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.Zip}"/>
+                    <Label Content="Profile" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="23" Margin="63,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.Profile}"/>
+                    <Label Content="Status" HorizontalAlignment="Left" Margin="12,193,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="cbxStatus" HorizontalAlignment="Left" Margin="65,197,0,0" VerticalAlignment="Top" Width="201" ItemsSource="{Binding Path=Statuses}" SelectionChanged="cbxStatus_SelectionChanged"  />
+                    <Button x:Name="btnContactSummary" Content="Contact Summary" HorizontalAlignment="Left" Margin="777,10,0,0" VerticalAlignment="Top" Width="108" Click="btnContactSummary_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Personal Details">
+                <DataGrid>
+                    <DataGrid.Columns>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Pros/Cons">
+                <DataGrid>
+                    <DataGrid.Columns>
+
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -77,11 +77,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Forms\frmContacts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Forms\frmGenerateMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\frmInterests.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\frmIntergratedBrowser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -98,12 +106,21 @@
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\ContactedProfiles.cs" />
     <Compile Include="Database\Interest.cs" />
+    <Compile Include="Database\PersonalDetail.cs" />
+    <Compile Include="Database\ProsCons.cs" />
     <Compile Include="Database\RelationshipState.cs" />
+    <Compile Include="Database\SocialLink.cs" />
+    <Compile Include="Forms\frmContacts.xaml.cs">
+      <DependentUpon>frmContacts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmGenerateMessage.xaml.cs">
       <DependentUpon>frmGenerateMessage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmInterests.xaml.cs">
       <DependentUpon>frmInterests.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmIntergratedBrowser.xaml.cs">
+      <DependentUpon>frmIntergratedBrowser.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

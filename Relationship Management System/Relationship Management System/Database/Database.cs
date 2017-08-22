@@ -19,6 +19,9 @@ namespace Relationship_Management_System.Database {
 
     public virtual DbSet<Interest> Interests { get; set; }
     public virtual DbSet<ContactedProfiles> ContactedProfiles { get; set; }
+    public virtual DbSet<ProCon> ProsCons { get; set; }
+
+
   }
 
   //public class MyEntity

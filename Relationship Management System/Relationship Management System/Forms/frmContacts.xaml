@@ -59,7 +59,8 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=Category}" Header="Category" Width="100"/>
                         <DataGridTextColumn Binding="{Binding Path=Group}" Header="Group" Width="100"/>
-                        <DataGridTextColumn Binding="{Binding Path=Group}" Header="Category" Width="100"/>
+                        <DataGridTextColumn Binding="{Binding Path=Title}" Header="Title" Width="100"/>
+                        <DataGridTextColumn Binding="{Binding Path=Details}" Header="Details" Width="*"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>

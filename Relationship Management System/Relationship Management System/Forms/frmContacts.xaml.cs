@@ -18,7 +18,7 @@ namespace Relationship_Management_System.Forms {
 	/// <summary>
 	/// Interaction logic for frmContacts.xaml
 	/// </summary>
-	public partial class frmContacts : Window {
+	public partial class frmContacts : UserControl {
 		private Database.Database db = new Database.Database();
 		public string[] Statuses = Enum.GetNames(typeof(Database.RelationshipState));
 

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Relationship_Management_System"
         mc:Ignorable="d"
-        Title="MainWindow" Height="518" Width="888">
+        Title="MainWindow" Height="518" Width="888" Margin="0">
     <Grid>
         <Ribbon x:Name="Ribbon" Height="140" VerticalAlignment="Top">
             <Ribbon.ApplicationMenu>
@@ -18,6 +18,7 @@
                 <RibbonGroup x:Name="Group1" Header="Group1">
                     <RibbonButton x:Name="btnEditInterests1" Label="Edit Interests" Height="18" VerticalAlignment="Top" Click="btnEditInterests1_Click" />
                     <RibbonButton x:Name="btnGenerateMessage1" Label="Generate Message" Click="btnGenerateMessage1_Click" />
+                    <RibbonButton x:Name="btnContacts" Label="Contacts" Click="btnContacts_Click" />
                     <RibbonButton x:Name="btnTest" Label="Test" Click="btnTest_Click" />
                 </RibbonGroup>
             </RibbonTab>

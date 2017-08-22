@@ -35,5 +35,11 @@ namespace Relationship_Management_System {
 		private void btnTest_Click(object sender, RoutedEventArgs e) {
 			//ViewWindow.Content = new Forms.TestUserControl();
 		}
+
+		private void btnContacts_Click(object sender, RoutedEventArgs e) {
+			var Form = new Forms.frmContacts();
+
+			ViewWindow.Content = Form;
+		}
 	}
 }

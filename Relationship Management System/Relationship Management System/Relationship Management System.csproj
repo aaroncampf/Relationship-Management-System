@@ -153,6 +153,10 @@
     <Compile Include="Migrations\201708220302342_Added settings.Designer.cs">
       <DependentUpon>201708220302342_Added settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708222117104_Added Column.cs" />
+    <Compile Include="Migrations\201708222117104_Added Column.Designer.cs">
+      <DependentUpon>201708222117104_Added Column.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -182,6 +186,9 @@
     <EmbeddedResource Include="Migrations\201708220302342_Added settings.resx">
       <DependentUpon>201708220302342_Added settings.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708222117104_Added Column.resx">
+      <DependentUpon>201708222117104_Added Column.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -190,6 +197,7 @@
       <Link>Project Plans.docx</Link>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Relationship_Management_System.Database.Contact.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

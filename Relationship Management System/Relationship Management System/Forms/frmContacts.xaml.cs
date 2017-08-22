@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Aaron.Reports;
+using System.Collections.ObjectModel;
 
 
 namespace Relationship_Management_System.Forms {
@@ -20,11 +21,17 @@ namespace Relationship_Management_System.Forms {
 	/// </summary>
 	public partial class frmContacts : UserControl {
 		private Database.Database db = new Database.Database();
-		public string[] Statuses = Enum.GetNames(typeof(Database.RelationshipState));
+		private string[] Statuses = Enum.GetNames(typeof(Database.RelationshipState));
+		private ObservableCollection<Database.Contact> ContactList = new ObservableCollection<Database.Contact>();
 
 		public frmContacts() {
 			InitializeComponent();
-			db.Contacts.ToArray();
+
+			foreach (var item in db.Contacts.Where(x => !x.IsHidden)) {
+				ContactList.Add(item);
+			}
+
+			dgdContacts.ItemsSource = ContactList;
 		}
 
 		private void DG_Hyperlink_Click(object sender, RoutedEventArgs e) {
@@ -60,6 +67,30 @@ namespace Relationship_Management_System.Forms {
 			}
 
 			Report.Show();
+		}
+
+		private void btnDeleteContact_Click(object sender, RoutedEventArgs e) {
+			var SelectedContact = dgdContacts.SelectedItem as Database.Contact;
+			SelectedContact.IsHidden = true;
+			ContactList.Remove(SelectedContact);
+			//dgdContacts.DataContext = db.Contacts.Where(x => !x.IsHidden).ToList();
+		}
+
+		private void btnAddContact_Click(object sender, RoutedEventArgs e) {
+			var NewContact = new Database.Contact();
+			db.Contacts.Add(NewContact);
+			ContactList.Add(NewContact);
+		}
+
+		private void UserControl_Loaded(object sender, RoutedEventArgs e) {
+
+			// Do not load your data at design time.
+			// if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
+			// {
+			// 	//Load your data here and assign the result to the CollectionViewSource.
+			// 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
+			// 	myCollectionViewSource.Source = your data
+			// }
 		}
 	}
 }

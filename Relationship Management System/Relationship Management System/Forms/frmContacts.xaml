@@ -11,10 +11,11 @@
 >
     <UserControl.Resources>
         <CollectionViewSource x:Key="contactViewSource" d:DesignSource="{d:DesignInstance {x:Type database:Contact}, CreateList=True}"/>
+        <CollectionViewSource x:Key="personalDetailViewSource" d:DesignSource="{d:DesignInstance {x:Type database:PersonalDetail}, CreateList=True}"/>
     </UserControl.Resources>
 
     <Grid DataContext="{StaticResource contactViewSource}">
-        <DataGrid x:Name="dgdContacts" Margin="10,10,10,385" AutoGenerateColumns="False" ItemsSource="{Binding}">
+        <DataGrid x:Name="dgdContacts" Margin="10,10,10,353" AutoGenerateColumns="False" ItemsSource="{Binding}" d:DataContext="{d:DesignInstance Type=database:Contact}">
             <!-- d:DataContext="{d:DesignInstance Type=database:Contact}" -->
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="100" SortDirection="Descending"/>
@@ -23,7 +24,7 @@
                 <DataGridTextColumn Binding="{Binding Path=City}" Header="City" Width="75"/>
                 <DataGridTextColumn Binding="{Binding Path=State}" Header="State" Width="50"/>
                 <DataGridTextColumn Binding="{Binding Path=Zip}" Header="Zip" Width="75"/>
-                <DataGridHyperlinkColumn Binding="{Binding Path=Profile}" Header="Profile">
+                <DataGridHyperlinkColumn Binding="{Binding Path=Profile}" Header="Profile" Width="*">
                     <DataGridHyperlinkColumn.ElementStyle>
                         <Style>
                             <EventSetter Event="Hyperlink.Click" Handler="DG_Hyperlink_Click"/>
@@ -34,7 +35,7 @@
         </DataGrid>
         <TabControl Height="338" VerticalAlignment="Bottom" Margin="10,0,10,10">
             <TabItem Header="Details">
-                <Grid Background="#FFE5E5E5">
+                <Grid Background="#FFE5E5E5" d:DataContext="{d:DesignInstance Type=database:Contact}">
                     <Label Content="Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="63,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.Name}"/>
                     <Label Content="Address" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
@@ -49,21 +50,23 @@
                     <TextBox HorizontalAlignment="Left" Height="23" Margin="63,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" Text="{Binding ElementName=dgdContacts, Path=SelectedItem.Profile}"/>
                     <Label Content="Status" HorizontalAlignment="Left" Margin="12,193,0,0" VerticalAlignment="Top"/>
                     <ComboBox x:Name="cbxStatus" HorizontalAlignment="Left" Margin="65,197,0,0" VerticalAlignment="Top" Width="201" ItemsSource="{Binding Path=Statuses}" SelectionChanged="cbxStatus_SelectionChanged"  />
-                    <Button x:Name="btnContactSummary" Content="Contact Summary" HorizontalAlignment="Left" Margin="777,10,0,0" VerticalAlignment="Top" Width="108" Click="btnContactSummary_Click"/>
+                    <Button x:Name="btnContactSummary" Content="Contact Summary" Margin="0,10,8,0" VerticalAlignment="Top" Click="btnContactSummary_Click" HorizontalAlignment="Right" Width="108"/>
                     <Button x:Name="btnDeleteContact" Content="Delete" HorizontalAlignment="Left" Margin="10,274,0,0" VerticalAlignment="Top" Width="75" Click="btnDeleteContact_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Personal Details">
-                <DataGrid>
+            <TabItem Header="Personal Details" Margin="1,0,-5,-3">
+                <DataGrid ItemsSource="{Binding Source={StaticResource personalDetailViewSource}}" AutoGenerateColumns="False" d:DataContext="{d:DesignInstance Type=database:PersonalDetail}" >
                     <DataGrid.Columns>
-
+                        <DataGridTextColumn Binding="{Binding Path=Category}" Header="Category" Width="100"/>
+                        <DataGridTextColumn Binding="{Binding Path=Group}" Header="Group" Width="100"/>
+                        <DataGridTextColumn Binding="{Binding Path=Group}" Header="Category" Width="100"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
             <TabItem Header="Pros/Cons">
-                <DataGrid>
+                <DataGrid d:DataContext="{d:DesignInstance Type=database:ProCon}">
                     <DataGrid.Columns>
-
+                        
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>

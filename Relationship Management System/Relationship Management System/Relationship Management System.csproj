@@ -198,6 +198,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Relationship_Management_System.Database.Contact.datasource" />
+    <None Include="Properties\DataSources\Relationship_Management_System.Database.PersonalDetail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

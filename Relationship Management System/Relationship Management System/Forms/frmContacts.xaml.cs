@@ -62,7 +62,7 @@ namespace Relationship_Management_System.Forms {
 			var Table2 = PersonalDetails.Table;
 			Report.Sections.Add(BasicDetails);
 
-			foreach (var item in SelectedContact.PersonalDetails) {
+			foreach (var item in SelectedContact.PersonalDetails.OrderBy(x => x.Title)) {
 				Extensions.AddRow(ref Table2, 0, TextAlignment.Left, item.Title, item.Details);
 			}
 

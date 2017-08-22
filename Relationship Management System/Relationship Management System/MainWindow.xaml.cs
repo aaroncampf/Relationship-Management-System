@@ -33,7 +33,7 @@ namespace Relationship_Management_System {
 		}
 
 		private void btnTest_Click(object sender, RoutedEventArgs e) {
-			testDock.Children.Add(new Forms.frmGenerateMessage());
+			//ViewWindow.Content = new Forms.TestUserControl();
 		}
 	}
 }

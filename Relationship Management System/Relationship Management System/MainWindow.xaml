@@ -27,10 +27,6 @@
 
         </Ribbon>
 
-
-        <DockPanel x:Name="testDock" HorizontalAlignment="Left" Height="155" LastChildFill="False" Margin="138,220,0,0" VerticalAlignment="Top" Width="420">
-            <Label Content="Try embedding windows in here!" Height="100" VerticalAlignment="Top"/>
-
-        </DockPanel>
+        <ContentControl x:Name="ViewWindow" Margin="0,145,0,0" />
     </Grid>
 </Window>

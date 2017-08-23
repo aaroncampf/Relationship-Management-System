@@ -15,7 +15,6 @@ namespace Relationship_Management_System.Database {
 		public string City { get; set; }
 		public string State { get; set; }
 		public string Zip { get; set; }
-		public string Profile { get; set; }
 		public string Details { get; set; }
 	}
 }

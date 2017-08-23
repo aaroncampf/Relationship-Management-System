@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Relationship_Management_System.Database {
+	/// <summary>
+	/// A location to bring someone for an activity
+	/// </summary>
 	public class Location {
 		public int Id { get; set; }
 		public string Name { get; set; }

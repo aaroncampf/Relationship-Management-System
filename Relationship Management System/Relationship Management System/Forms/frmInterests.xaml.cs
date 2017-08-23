@@ -28,7 +28,6 @@ namespace Relationship_Management_System.Forms {
 
 		private void btnAdd_Click(object sender, RoutedEventArgs e) {
 			db.Interests.Add(new Database.Interest { Name = "Test" });
-			//dgdInterests.ItemsSource = db.Interests;
 		}
 
 		private void btnRemove_Click(object sender, RoutedEventArgs e) {

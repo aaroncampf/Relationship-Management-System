@@ -83,14 +83,21 @@ namespace Relationship_Management_System.Forms {
 		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) {
+			MainWindow parentWindow = Window.GetWindow(this) as MainWindow;
+			var NewRibbonTab = new System.Windows.Controls.Ribbon.RibbonTab() { Header = "Contacts" };
+			var NewRibbonGroup = new System.Windows.Controls.Ribbon.RibbonGroup() { Header = "Contacts" };
+			NewRibbonTab.Items.Add(NewRibbonGroup);
+			var NewRibbonButton = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Save" };
+			NewRibbonGroup.Items.Add(NewRibbonButton);
+			NewRibbonButton.Click += NewRibbonButton_Click;
+			parentWindow.Ribbon.Items.Add(NewRibbonTab);
+			parentWindow.Ribbon.SelectedItem = NewRibbonTab;
 
-			// Do not load your data at design time.
-			// if (!System.ComponentModel.DesignerProperties.GetIsInDesignMode(this))
-			// {
-			// 	//Load your data here and assign the result to the CollectionViewSource.
-			// 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
-			// 	myCollectionViewSource.Source = your data
-			// }
+
+		}
+
+		private void NewRibbonButton_Click(object sender, RoutedEventArgs e) {
+			db.SaveChanges();
 		}
 	}
 }

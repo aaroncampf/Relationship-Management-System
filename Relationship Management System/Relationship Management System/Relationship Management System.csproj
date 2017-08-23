@@ -110,6 +110,7 @@
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\ContactedProfiles.cs" />
     <Compile Include="Database\Interest.cs" />
+    <Compile Include="Database\Location.cs" />
     <Compile Include="Database\PersonalDetail.cs" />
     <Compile Include="Database\ProsCons.cs" />
     <Compile Include="Database\RelationshipState.cs" />

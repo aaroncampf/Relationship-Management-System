@@ -14,29 +14,29 @@ using System.Windows.Shapes;
 
 namespace Relationship_Management_System.Forms {
 
-  /// <summary>
-  /// Interaction logic for Interests.xaml
-  /// </summary>
-  public partial class frmInterests : Window {
-    private Database.Database db = new Database.Database();
+	/// <summary>
+	/// Interaction logic for Interests.xaml
+	/// </summary>
+	public partial class frmInterests : UserControl {
+		private Database.Database db = new Database.Database();
 
-    public frmInterests() {
-      InitializeComponent();
-      db.Interests.ToArray();
-      dgdInterests.ItemsSource = db.Interests.Local;
-    }
+		public frmInterests() {
+			InitializeComponent();
+			db.Interests.ToArray();
+			dgdInterests.ItemsSource = db.Interests.Local;
+		}
 
-    private void btnAdd_Click(object sender, RoutedEventArgs e) {
-      db.Interests.Add(new Database.Interest { Name = "Test" });
-      //dgdInterests.ItemsSource = db.Interests;
-    }
+		private void btnAdd_Click(object sender, RoutedEventArgs e) {
+			db.Interests.Add(new Database.Interest { Name = "Test" });
+			//dgdInterests.ItemsSource = db.Interests;
+		}
 
-    private void btnRemove_Click(object sender, RoutedEventArgs e) {
+		private void btnRemove_Click(object sender, RoutedEventArgs e) {
 
-    }
+		}
 
-    private void btnSave_Click(object sender, RoutedEventArgs e) {
-      db.SaveChanges();
-    }
-  }
+		private void btnSave_Click(object sender, RoutedEventArgs e) {
+			db.SaveChanges();
+		}
+	}
 }

@@ -24,7 +24,7 @@ namespace Relationship_Management_System {
 
 		private void btnEditInterests1_Click(object sender, RoutedEventArgs e) {
 			var Form = new Forms.frmInterests();
-			Form.ShowDialog();
+			ViewWindow.Content = Form;
 		}
 
 		private void btnGenerateMessage1_Click(object sender, RoutedEventArgs e) {
@@ -38,7 +38,6 @@ namespace Relationship_Management_System {
 
 		private void btnContacts_Click(object sender, RoutedEventArgs e) {
 			var Form = new Forms.frmContacts();
-
 			ViewWindow.Content = Form;
 		}
 	}

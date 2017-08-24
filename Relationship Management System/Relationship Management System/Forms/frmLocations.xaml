@@ -6,25 +6,25 @@
              xmlns:Database="clr-namespace:Relationship_Management_System.Database" 
              x:Class="Relationship_Management_System.Forms.frmLocations" 
              mc:Ignorable="d" 
-             Loaded="UserControl_Loaded" Height="348" Width="507">
+             Loaded="UserControl_Loaded" Height="425" Width="507">
 
     <UserControl.Resources>
         <CollectionViewSource x:Key="locationViewSource" d:DesignSource="{d:DesignInstance {x:Type Database:Location}, CreateList=True}"/>
     </UserControl.Resources>
     <Grid DataContext="{StaticResource locationViewSource}">
 
-        <DataGrid x:Name="locationDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False">
+        <DataGrid x:Name="locationDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" Margin="0,0,0,184">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="addressColumn" Width="SizeToHeader" Header="Address" Binding="{Binding Address}"/>
-                <DataGridTextColumn x:Name="cityColumn" Width="SizeToHeader" Header="City" Binding="{Binding City}"/>
-                <DataGridTextColumn x:Name="detailsColumn" Width="SizeToHeader" Header="Details" Binding="{Binding Details}"/>
-                <DataGridTextColumn x:Name="idColumn" Width="SizeToHeader" Header="Id" Binding="{Binding Id}"/>
-                <DataGridTextColumn x:Name="nameColumn" Width="SizeToHeader" Header="Name" Binding="{Binding Name}"/>
-                <DataGridTextColumn x:Name="stateColumn" Width="SizeToHeader" Header="State" Binding="{Binding State}"/>
-                <DataGridTextColumn x:Name="typeColumn" Width="SizeToHeader" Header="Type" Binding="{Binding Type}"/>
-                <DataGridTextColumn x:Name="zipColumn" Width="SizeToHeader" Header="Zip" Binding="{Binding Zip}"/>
+                <DataGridTextColumn x:Name="nameColumn" Header="Name" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn x:Name="addressColumn" Header="Address" Binding="{Binding Address}" Width="150"/>
+                <DataGridTextColumn x:Name="cityColumn" Header="City" Binding="{Binding City}" Width="75"/>
+                <DataGridTextColumn x:Name="stateColumn" Header="State" Binding="{Binding State}"/>
+                <DataGridTextColumn x:Name="typeColumn" Header="Type" Binding="{Binding Type}"/>
+                <DataGridTextColumn x:Name="zipColumn" Header="Zip" Binding="{Binding Zip}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="Details" HorizontalAlignment="Left" Margin="10,0,0,153" VerticalAlignment="Bottom"/>
+        <TextBox Margin="10,0,10,10" TextWrapping="Wrap" Text="{Binding ElementName=locationDataGrid, Path=SelectedItem.Details}" Height="143" VerticalAlignment="Bottom"/>
 
     </Grid>
 </UserControl>

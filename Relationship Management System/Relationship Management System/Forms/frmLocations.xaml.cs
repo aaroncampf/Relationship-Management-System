@@ -48,7 +48,12 @@ namespace Relationship_Management_System.Forms {
 		}
 
 		private void cbxType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+			var Content = (e.AddedItems[0] as ComboBoxItem).Content.ToString().Replace("_", "");
+			Database.ActivityType Value;
+			Enum.TryParse(Content, out Value);
 
+			var Location = locationDataGrid.SelectedItem as Database.Location;
+			Location.Type = Value;
 		}
 	}
 }

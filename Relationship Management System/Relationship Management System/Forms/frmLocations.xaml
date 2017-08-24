@@ -21,12 +21,12 @@
                 <DataGridTemplateColumn x:Name="typeColumn" Header="Type" Width="200">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <ComboBox x:Name="cbxType" ContextMenuClosing="cbxType_ContextMenuClosing" SelectionChanged="cbxType_SelectionChanged">
+                            <ComboBox x:Name="cbxType" SelectionChanged="cbxType_SelectionChanged">
                                 <ComboBoxItem Content="{Binding Type}"/>
-                                <ComboBoxItem Content="A" />
-                                <ComboBoxItem>1</ComboBoxItem>
-                                <ComboBoxItem>2</ComboBoxItem>
-                                <ComboBoxItem/>
+                                <ComboBoxItem>Dating_Casual</ComboBoxItem>
+                                <ComboBoxItem>Dating_Serious</ComboBoxItem>
+                                <ComboBoxItem>Recreational_Individual</ComboBoxItem>
+                                <ComboBoxItem>Recreational_Group</ComboBoxItem>
                             </ComboBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

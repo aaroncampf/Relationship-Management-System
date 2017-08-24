@@ -25,6 +25,6 @@ namespace Relationship_Management_System.Database {
 		Dating_Casual = 1,
 		Dating_Serious = 2,
 		Recreational_Individual = 4,
-		Recreational_Group = 4,
+		Recreational_Group = 8,
 	}
 }

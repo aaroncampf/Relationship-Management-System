@@ -6,7 +6,9 @@
              xmlns:Database="clr-namespace:Relationship_Management_System.Database" 
              x:Class="Relationship_Management_System.Forms.frmLocations" 
              mc:Ignorable="d" 
-             Loaded="UserControl_Loaded" Height="388" Width="724">
+             Loaded="UserControl_Loaded" 
+             d:DesignHeight="388" 
+             d:DesignWidth="724"  x:Name="MainParent">
 
     <UserControl.Resources>
         <CollectionViewSource x:Key="locationViewSource" d:DesignSource="{d:DesignInstance {x:Type Database:Location}, CreateList=True}"/>
@@ -16,7 +18,19 @@
         <DataGrid x:Name="locationDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" Margin="0,0,0,184">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="nameColumn" Header="Name" Binding="{Binding Name}" Width="*"/>
-                <DataGridTextColumn x:Name="typeColumn" Header="Type" Binding="{Binding Type}" Width="200"/>
+                <DataGridTemplateColumn x:Name="typeColumn" Header="Type" Width="200">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox x:Name="cbxType" ContextMenuClosing="cbxType_ContextMenuClosing" SelectionChanged="cbxType_SelectionChanged">
+                                <ComboBoxItem Content="{Binding Type}"/>
+                                <ComboBoxItem Content="A" />
+                                <ComboBoxItem>1</ComboBoxItem>
+                                <ComboBoxItem>2</ComboBoxItem>
+                                <ComboBoxItem/>
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn x:Name="cityColumn" Header="City" Binding="{Binding City}" Width="75"/>
                 <DataGridTextColumn x:Name="stateColumn" Header="State" Binding="{Binding State}" Width="50"/>
                 <DataGridTextColumn x:Name="addressColumn" Header="Address" Binding="{Binding Address}" Width="150"/>

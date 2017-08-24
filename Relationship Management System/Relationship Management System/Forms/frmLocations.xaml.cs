@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,17 @@ namespace Relationship_Management_System.Forms {
 	/// Interaction logic for frmLocations.xaml
 	/// </summary>
 	public partial class frmLocations : UserControl {
+		private Database.Database db = new Database.Database();
+		private string[] Statuses = Enum.GetNames(typeof(Database.RelationshipState));
+		public string[] ABC = { "A", "B", "C" };
+
+
+
 		public frmLocations() {
 			InitializeComponent();
+
+			db.Locations.ToArray();
+			locationDataGrid.ItemsSource = db.Locations.Local;
 		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) {
@@ -31,6 +41,14 @@ namespace Relationship_Management_System.Forms {
 			// 	System.Windows.Data.CollectionViewSource myCollectionViewSource = (System.Windows.Data.CollectionViewSource)this.Resources["Resource Key for CollectionViewSource"];
 			// 	myCollectionViewSource.Source = your data
 			// }
+		}
+
+		private void cbxType_ContextMenuClosing(object sender, ContextMenuEventArgs e) {
+
+		}
+
+		private void cbxType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+
 		}
 	}
 }

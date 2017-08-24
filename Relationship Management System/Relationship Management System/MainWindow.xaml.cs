@@ -40,5 +40,10 @@ namespace Relationship_Management_System {
 			var Form = new Forms.frmContacts();
 			ViewWindow.Content = Form;
 		}
+
+		private void btnLocations_Click(object sender, RoutedEventArgs e) {
+			var Form = new Forms.frmLocations();
+			ViewWindow.Content = Form;
+		}
 	}
 }

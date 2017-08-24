@@ -43,10 +43,6 @@ namespace Relationship_Management_System.Forms {
 			// }
 		}
 
-		private void cbxType_ContextMenuClosing(object sender, ContextMenuEventArgs e) {
-
-		}
-
 		private void cbxType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
 			var Content = (e.AddedItems[0] as ComboBoxItem).Content.ToString().Replace("_", "");
 			Database.ActivityType Value;

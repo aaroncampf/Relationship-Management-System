@@ -6,7 +6,7 @@
              xmlns:Database="clr-namespace:Relationship_Management_System.Database" 
              x:Class="Relationship_Management_System.Forms.frmLocations" 
              mc:Ignorable="d" 
-             Loaded="UserControl_Loaded" Height="425" Width="507">
+             Loaded="UserControl_Loaded" Height="388" Width="724">
 
     <UserControl.Resources>
         <CollectionViewSource x:Key="locationViewSource" d:DesignSource="{d:DesignInstance {x:Type Database:Location}, CreateList=True}"/>
@@ -16,11 +16,11 @@
         <DataGrid x:Name="locationDataGrid" RowDetailsVisibilityMode="VisibleWhenSelected" ItemsSource="{Binding}" EnableRowVirtualization="True" AutoGenerateColumns="False" Margin="0,0,0,184">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="nameColumn" Header="Name" Binding="{Binding Name}" Width="*"/>
-                <DataGridTextColumn x:Name="addressColumn" Header="Address" Binding="{Binding Address}" Width="150"/>
+                <DataGridTextColumn x:Name="typeColumn" Header="Type" Binding="{Binding Type}" Width="200"/>
                 <DataGridTextColumn x:Name="cityColumn" Header="City" Binding="{Binding City}" Width="75"/>
-                <DataGridTextColumn x:Name="stateColumn" Header="State" Binding="{Binding State}"/>
-                <DataGridTextColumn x:Name="typeColumn" Header="Type" Binding="{Binding Type}"/>
-                <DataGridTextColumn x:Name="zipColumn" Header="Zip" Binding="{Binding Zip}"/>
+                <DataGridTextColumn x:Name="stateColumn" Header="State" Binding="{Binding State}" Width="50"/>
+                <DataGridTextColumn x:Name="addressColumn" Header="Address" Binding="{Binding Address}" Width="150"/>
+                <DataGridTextColumn x:Name="zipColumn" Header="Zip" Binding="{Binding Zip}" Width="75"/>
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Details" HorizontalAlignment="Left" Margin="10,0,0,153" VerticalAlignment="Bottom"/>

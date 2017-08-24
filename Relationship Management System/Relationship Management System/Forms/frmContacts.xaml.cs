@@ -99,5 +99,9 @@ namespace Relationship_Management_System.Forms {
 		private void NewRibbonButton_Click(object sender, RoutedEventArgs e) {
 			db.SaveChanges();
 		}
+
+		private void UserControl_Unloaded(object sender, RoutedEventArgs e) {
+			//TODO: Consider adding saving here
+		}
 	}
 }

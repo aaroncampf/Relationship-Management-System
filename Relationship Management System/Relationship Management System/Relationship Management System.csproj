@@ -97,6 +97,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\frmLocations.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -127,6 +131,9 @@
     </Compile>
     <Compile Include="Forms\frmIntergratedBrowser.xaml.cs">
       <DependentUpon>frmIntergratedBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLocations.xaml.cs">
+      <DependentUpon>frmLocations.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -161,6 +168,10 @@
     <Compile Include="Migrations\201708231642122_Added tables and columns.cs" />
     <Compile Include="Migrations\201708231642122_Added tables and columns.Designer.cs">
       <DependentUpon>201708231642122_Added tables and columns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708231948553_Added Columns.cs" />
+    <Compile Include="Migrations\201708231948553_Added Columns.Designer.cs">
+      <DependentUpon>201708231948553_Added Columns.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -197,6 +208,9 @@
     <EmbeddedResource Include="Migrations\201708231642122_Added tables and columns.resx">
       <DependentUpon>201708231642122_Added tables and columns.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708231948553_Added Columns.resx">
+      <DependentUpon>201708231948553_Added Columns.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -206,6 +220,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Relationship_Management_System.Database.Contact.datasource" />
+    <None Include="Properties\DataSources\Relationship_Management_System.Database.Location.datasource" />
     <None Include="Properties\DataSources\Relationship_Management_System.Database.PersonalDetail.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

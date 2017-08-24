@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         d:DesignHeight="705"
-        d:DesignWidth="923" Loaded="UserControl_Loaded"
+        d:DesignWidth="923" Loaded="UserControl_Loaded" Unloaded="UserControl_Unloaded"
 >
     <UserControl.Resources>
         <CollectionViewSource x:Key="contactViewSource" d:DesignSource="{d:DesignInstance {x:Type database:Contact}, CreateList=True}"/>
@@ -54,7 +54,7 @@
                     <Button x:Name="btnDeleteContact" Content="Delete" HorizontalAlignment="Left" Margin="10,274,0,0" VerticalAlignment="Top" Width="75" Click="btnDeleteContact_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Personal Details" Margin="1,0,-5,-3">
+            <TabItem Header="Personal Details">
                 <DataGrid ItemsSource="{Binding Source={StaticResource personalDetailViewSource}}" AutoGenerateColumns="False" d:DataContext="{d:DesignInstance Type=database:PersonalDetail}" >
                     <DataGrid.Columns>
                         <DataGridTextColumn Binding="{Binding Path=Category}" Header="Category" Width="100"/>
@@ -65,9 +65,10 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="Pros/Cons">
-                <DataGrid d:DataContext="{d:DesignInstance Type=database:ProCon}">
+                <DataGrid d:DataContext="{d:DesignInstance Type=database:ProCon}" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        
+                        <DataGridTextColumn Binding="{Binding Path=Points}" Header="Points" Width="100"/>
+                        <DataGridTextColumn Binding="{Binding Path=Title}" Header="Title" Width="100"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>

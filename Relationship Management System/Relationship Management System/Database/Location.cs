@@ -23,7 +23,7 @@ namespace Relationship_Management_System.Database {
 	[Flags]
 	public enum ActivityType {
 		Dating_Casual = 1,
-		Dating_Serious = 2,
+		Dating_Formal = 2,
 		Recreational_Individual = 4,
 		Recreational_Group = 8,
 	}

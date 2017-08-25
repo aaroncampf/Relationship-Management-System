@@ -23,10 +23,10 @@
                         <DataTemplate>
                             <ComboBox x:Name="cbxType" SelectionChanged="cbxType_SelectionChanged">
                                 <ComboBoxItem Content="{Binding Type}"/>
-                                <ComboBoxItem>Dating_Casual</ComboBoxItem>
-                                <ComboBoxItem>Dating_Serious</ComboBoxItem>
-                                <ComboBoxItem>Recreational_Individual</ComboBoxItem>
-                                <ComboBoxItem>Recreational_Group</ComboBoxItem>
+                                <ComboBoxItem>Dating Casual</ComboBoxItem>
+                                <ComboBoxItem>Dating Formal</ComboBoxItem>
+                                <ComboBoxItem>Recreational Individual</ComboBoxItem>
+                                <ComboBoxItem>Recreational Group</ComboBoxItem>
                             </ComboBox>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -21,8 +21,6 @@ namespace Relationship_Management_System.Forms {
 	public partial class frmLocations : UserControl {
 		private Database.Database db = new Database.Database();
 		private string[] Statuses = Enum.GetNames(typeof(Database.RelationshipState));
-		public string[] ABC = { "A", "B", "C" };
-
 
 
 		public frmLocations() {
@@ -44,7 +42,7 @@ namespace Relationship_Management_System.Forms {
 		}
 
 		private void cbxType_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-			var Content = (e.AddedItems[0] as ComboBoxItem).Content.ToString().Replace("_", "");
+			var Content = (e.AddedItems[0] as ComboBoxItem).Content.ToString().Replace(" ", "_");
 			Database.ActivityType Value;
 			Enum.TryParse(Content, out Value);
 

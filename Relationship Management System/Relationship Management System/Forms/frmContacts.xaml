@@ -67,9 +67,9 @@
             <TabItem Header="Pros/Cons">
                 <Grid>
                     <Label Content="Selected" HorizontalAlignment="Left" Margin="10,27,0,0" VerticalAlignment="Top"/>
-                    <ListBox Margin="10,53,691,10"/>
+                    <ListBox x:Name="lbxProCon_Has" DisplayMemberPath="Title" Margin="10,53,691,10"/>
                     <Label Content="List" HorizontalAlignment="Left" Margin="344,27,0,0" VerticalAlignment="Top"/>
-                    <ListBox x:Name="lbxProCon" Margin="344,53,335,10"/>
+                    <ListBox x:Name="lbxProCon_List" DisplayMemberPath="Title" Margin="344,53,335,10"/>
                 </Grid>
             </TabItem>
         </TabControl>

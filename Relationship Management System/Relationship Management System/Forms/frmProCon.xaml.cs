@@ -46,5 +46,9 @@ namespace Relationship_Management_System.Forms {
 			NewRibbonGroup.Items.Add(SaveRibbonButton);
 			SaveRibbonButton.Click += (object sender1, RoutedEventArgs e1) => { db.SaveChanges(); };
 		}
+
+		private void UserControl_Unloaded(object sender, RoutedEventArgs e) {
+			ParentWindow.Ribbon.Items.Remove(MyRibbonTab);
+		}
 	}
 }

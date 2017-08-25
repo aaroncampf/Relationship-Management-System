@@ -36,7 +36,7 @@ namespace Relationship_Management_System.Forms {
 			dgdContacts.ItemsSource = ContactList;
 
 			db.ProsCons.ToArray();
-			lbxProCon.ItemsSource = db.ProsCons.Local;
+			lbxProCon_List.ItemsSource = db.ProsCons.Local;
 		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) {

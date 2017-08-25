@@ -23,7 +23,7 @@ namespace Relationship_Management_System.Forms {
 		private Database.Database db = new Database.Database();
 		private string[] Statuses = Enum.GetNames(typeof(Database.RelationshipState));
 		private ObservableCollection<Database.Contact> ContactList = new ObservableCollection<Database.Contact>();
-		private System.Windows.Controls.Ribbon.RibbonTab ContactRibbonTab;
+		private System.Windows.Controls.Ribbon.RibbonTab MyRibbonTab;
 		private MainWindow ParentWindow;
 
 		public frmContacts() {
@@ -34,6 +34,28 @@ namespace Relationship_Management_System.Forms {
 			}
 
 			dgdContacts.ItemsSource = ContactList;
+
+			db.ProsCons.ToArray();
+			lbxProCon.ItemsSource = db.ProsCons.Local;
+		}
+
+		private void UserControl_Loaded(object sender, RoutedEventArgs e) {
+			ParentWindow = Window.GetWindow(this) as MainWindow;
+
+			MyRibbonTab = new System.Windows.Controls.Ribbon.RibbonTab() { Header = "Contacts" };
+			ParentWindow.Ribbon.Items.Add(MyRibbonTab);
+			ParentWindow.Ribbon.SelectedItem = MyRibbonTab;
+
+			var NewRibbonGroup = new System.Windows.Controls.Ribbon.RibbonGroup() { Header = "Contacts" };
+			MyRibbonTab.Items.Add(NewRibbonGroup);
+
+			var SaveRibbonButton = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Save" };
+			NewRibbonGroup.Items.Add(SaveRibbonButton);
+			SaveRibbonButton.Click += (object sender1, RoutedEventArgs e1) => { db.SaveChanges(); };
+		}
+
+		private void UserControl_Unloaded(object sender, RoutedEventArgs e) {
+			ParentWindow.Ribbon.Items.Remove(MyRibbonTab);
 		}
 
 		private void DG_Hyperlink_Click(object sender, RoutedEventArgs e) {
@@ -82,31 +104,6 @@ namespace Relationship_Management_System.Forms {
 			var NewContact = new Database.Contact();
 			db.Contacts.Add(NewContact);
 			ContactList.Add(NewContact);
-		}
-
-
-
-		private void NewRibbonButton_Click(object sender, RoutedEventArgs e) {
-			db.SaveChanges();
-		}
-
-		private void UserControl_Loaded(object sender, RoutedEventArgs e) {
-			ParentWindow = Window.GetWindow(this) as MainWindow;
-
-			ContactRibbonTab = new System.Windows.Controls.Ribbon.RibbonTab() { Header = "Contacts" };
-			ParentWindow.Ribbon.Items.Add(ContactRibbonTab);
-			ParentWindow.Ribbon.SelectedItem = ContactRibbonTab;
-
-			var NewRibbonGroup = new System.Windows.Controls.Ribbon.RibbonGroup() { Header = "Contacts" };
-			ContactRibbonTab.Items.Add(NewRibbonGroup);
-
-			var NewRibbonButton = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Save" };
-			NewRibbonGroup.Items.Add(NewRibbonButton);
-			NewRibbonButton.Click += NewRibbonButton_Click;
-		}
-
-		private void UserControl_Unloaded(object sender, RoutedEventArgs e) {
-			ParentWindow.Ribbon.Items.Remove(ContactRibbonTab);
 		}
 	}
 }

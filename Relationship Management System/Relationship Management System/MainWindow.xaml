@@ -19,6 +19,7 @@
                     <RibbonButton x:Name="btnGenerateMessage1" Label="Generate Message" Click="btnGenerateMessage1_Click" />
                     <RibbonButton x:Name="btnContacts" Label="Contacts" Click="btnContacts_Click" />
                     <RibbonButton x:Name="btnLocations" Label="Locations" Click="btnLocations_Click"/>
+                    <RibbonButton x:Name="btnProCon" Label="Pros/Cons" Click="btnProCon_Click" />
                     <RibbonButton x:Name="btnTest" Label="Test" Click="btnTest_Click" />
                 </RibbonGroup>
             </RibbonTab>

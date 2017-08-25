@@ -13,6 +13,10 @@ namespace Relationship_Management_System.Database {
 		public int Points { get; set; }
 		public string Title { get; set; }
 
-		public Contact Contact { get; set; }
+		public HashSet<Contact> Contacts { get; set; }
+
+		public ProCon() {
+			Contacts = new HashSet<Contact>();
+		}
 	}
 }

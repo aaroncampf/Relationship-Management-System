@@ -7,26 +7,30 @@
         xmlns:classes="clr-namespace:Relationship_Management_System.Classes"
 		xmlns:database="clr-namespace:Relationship_Management_System.Database"
         mc:Ignorable="d"
-        Height="430.028" Width="620.397">
+        d:DesignHeight="430.028" 
+        d:DesignWidth="620.397">
 
 
     <UserControl.Resources>
         <classes:IsNothingConverter x:Key="IsNothingConverter"/>
     </UserControl.Resources>
     <Grid>
-		<DataGrid x:Name="dgdInterests" Height="139" Margin="10,10,10,0" VerticalAlignment="Top" d:DataContext="{d:DesignInstance Type=database:Interest}" AutoGenerateColumns="False">
-			<DataGrid.Columns>
-				<DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="*"/>
-			</DataGrid.Columns>
-		</DataGrid>
+        <DataGrid x:Name="dgdInterests" Margin="10,10,10,281" d:DataContext="{d:DesignInstance Type=database:Interest}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
-		<Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
-		<Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="527,369,0,0" VerticalAlignment="Top" Width="75" Click="btnRemove_Click"/>
-		<Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="269,369,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
-        <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="138" Margin="67,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="535" 
-                 Text="{Binding SelectedItem.Message, ElementName=dgdInterests}"
-                 IsEnabled="{Binding SelectedItem, ElementName=dgdInterests, Converter={StaticResource IsNothingConverter}}"
-        />
-		<Label Content="Message" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top"/>
-	</Grid>
+        <GroupBox BorderThickness="2" BorderBrush="Gray" Height="260" VerticalAlignment="Bottom" IsEnabled="{Binding SelectedItem, ElementName=dgdInterests, Converter={StaticResource IsNothingConverter}}">
+            <Grid>
+                <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,0,0,33" VerticalAlignment="Bottom" Width="75" Click="btnAdd_Click"/>
+                <Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="527,0,0,33" VerticalAlignment="Bottom" Width="75" Click="btnRemove_Click"/>
+                <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="269,0,0,33" VerticalAlignment="Bottom" Width="75" Click="btnSave_Click"/>
+                <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="138" Margin="67,0,0,91" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="535" 
+                         Text="{Binding SelectedItem.Message, ElementName=dgdInterests}"                         
+                />
+                <Label Content="Message" HorizontalAlignment="Left" Margin="10,0,0,207" VerticalAlignment="Bottom"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
 </UserControl>

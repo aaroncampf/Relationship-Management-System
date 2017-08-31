@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Relationship_Management_System.Forms"
+        xmlns:classes="clr-namespace:Relationship_Management_System.Classes"
 		xmlns:database="clr-namespace:Relationship_Management_System.Database"
         mc:Ignorable="d"
         Height="430.028" Width="620.397">
-	<Grid>
+
+
+    <UserControl.Resources>
+        <classes:IsNothingConverter x:Key="IsNothingConverter"/>
+    </UserControl.Resources>
+    <Grid>
 		<DataGrid x:Name="dgdInterests" Height="139" Margin="10,10,10,0" VerticalAlignment="Top" d:DataContext="{d:DesignInstance Type=database:Interest}" AutoGenerateColumns="False">
 			<DataGrid.Columns>
 				<DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="*"/>
@@ -17,9 +23,10 @@
 		<Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="75" Click="btnAdd_Click"/>
 		<Button x:Name="btnRemove" Content="Remove" HorizontalAlignment="Left" Margin="527,369,0,0" VerticalAlignment="Top" Width="75" Click="btnRemove_Click"/>
 		<Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="269,369,0,0" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
-		<TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="67,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" Text="{Binding SelectedItem.Name, ElementName=dgdInterests}"/>
-		<Label Content="Name" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="138" Margin="67,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="535" Text="{Binding SelectedItem.Message, ElementName=dgdInterests}"/>
+        <TextBox x:Name="txtMessage" HorizontalAlignment="Left" Height="138" Margin="67,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="535" 
+                 Text="{Binding SelectedItem.Message, ElementName=dgdInterests}"
+                 IsEnabled="{Binding SelectedItem, ElementName=dgdInterests, Converter={StaticResource IsNothingConverter}}"
+        />
 		<Label Content="Message" HorizontalAlignment="Left" Margin="10,191,0,0" VerticalAlignment="Top"/>
 	</Grid>
 </UserControl>

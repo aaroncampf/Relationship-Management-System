@@ -15,7 +15,7 @@
     </UserControl.Resources>
 
     <Grid DataContext="{StaticResource contactViewSource}">
-        <DataGrid x:Name="dgdContacts" Margin="10,10,10,353" AutoGenerateColumns="False" ItemsSource="{Binding}" d:DataContext="{d:DesignInstance Type=database:Contact}">
+        <DataGrid x:Name="dgdContacts" Margin="10,10,10,353" AutoGenerateColumns="False" ItemsSource="{Binding}" d:DataContext="{d:DesignInstance Type=database:Contact}" EnableRowVirtualization="True">
             <!-- d:DataContext="{d:DesignInstance Type=database:Contact}" -->
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Path=Name}" Header="Name" Width="100" SortDirection="Descending"/>

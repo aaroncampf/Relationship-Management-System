@@ -49,5 +49,12 @@ namespace Relationship_Management_System.Forms {
 			var Location = locationDataGrid.SelectedItem as Database.Location;
 			Location.Type = Value;
 		}
+
+		private void btnRemove_Click(object sender, RoutedEventArgs e) {
+			var SelectedItem = locationDataGrid.SelectedItem as Database.Location;
+			if (SelectedItem != null) {
+				db.Locations.Remove(SelectedItem);
+			}
+		}
 	}
 }

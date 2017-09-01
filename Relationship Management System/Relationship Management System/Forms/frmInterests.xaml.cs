@@ -31,7 +31,10 @@ namespace Relationship_Management_System.Forms {
 		}
 
 		private void btnRemove_Click(object sender, RoutedEventArgs e) {
-			db.Interests.Local.Remove(dgdInterests.SelectedItem as Database.Interest);
+			var SelectedItem = dgdInterests.SelectedItem as Database.Interest;
+			if (SelectedItem != null) {
+				db.Interests.Remove(SelectedItem);
+			}
 		}
 
 		private void btnSave_Click(object sender, RoutedEventArgs e) {

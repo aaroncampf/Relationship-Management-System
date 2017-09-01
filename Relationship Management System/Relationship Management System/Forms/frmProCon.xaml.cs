@@ -50,5 +50,12 @@ namespace Relationship_Management_System.Forms {
 		private void UserControl_Unloaded(object sender, RoutedEventArgs e) {
 			ParentWindow.Ribbon.Items.Remove(MyRibbonTab);
 		}
+
+		private void btnRemove_Click(object sender, RoutedEventArgs e) {
+			var SelectedItem = proConDataGrid.SelectedItem as Database.ProCon;
+			if (SelectedItem != null) {
+				db.ProsCons.Remove(SelectedItem);
+			}
+		}
 	}
 }

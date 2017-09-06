@@ -31,14 +31,22 @@ namespace Relationship_Management_System.Forms {
 			ParentWindow.Ribbon.Items.Add(MyRibbonTab);
 			ParentWindow.Ribbon.SelectedItem = MyRibbonTab;
 
-			var NewRibbonGroup = new System.Windows.Controls.Ribbon.RibbonGroup() { Header = "Dating" };
-			MyRibbonTab.Items.Add(NewRibbonGroup);
+			var rgpDating = new System.Windows.Controls.Ribbon.RibbonGroup() { Header = "Dating" };
+			MyRibbonTab.Items.Add(rgpDating);
 
-			var SaveRibbonButton = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Parse" };
-			NewRibbonGroup.Items.Add(SaveRibbonButton);
-			SaveRibbonButton.Click += SaveRibbonButton_Click;
+			var btnParse = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Parse" };
+			btnParse.Click += SaveRibbonButton_Click;
+			rgpDating.Items.Add(btnParse);
+
+			var btnLookupProfile = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Lookup Profile" };
+			btnLookupProfile.Click += btnLookupProfile_Click;
+			rgpDating.Items.Add(btnLookupProfile);
 
 			wbrMain.Source = new Uri(@"https:\\www.google.com");
+		}
+
+		void btnLookupProfile_Click(object sender, RoutedEventArgs e) {
+			throw new NotImplementedException();
 		}
 
 		void SaveRibbonButton_Click(object sender, RoutedEventArgs e) {
@@ -67,6 +75,18 @@ namespace Relationship_Management_System.Forms {
 
 		private void UserControl_Unloaded(object sender, RoutedEventArgs e) {
 			ParentWindow.Ribbon.Items.Remove(MyRibbonTab);
+		}
+
+		private void wbrMain_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e) {
+
+		}
+
+		private void btnBack_Click(object sender, RoutedEventArgs e) {
+
+		}
+
+		private void btnForward_Click(object sender, RoutedEventArgs e) {
+
 		}
 
 	}

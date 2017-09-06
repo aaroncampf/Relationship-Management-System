@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Relationship_Management_System.Forms {
+	//TODO: Try replacing the browser with https://cefsharp.github.io/
+
+
 	/// <summary>
 	/// Interaction logic for frmIntergratedBrowser.xaml
 	/// </summary>
@@ -35,21 +38,18 @@ namespace Relationship_Management_System.Forms {
 			MyRibbonTab.Items.Add(rgpDating);
 
 			var btnParse = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Parse" };
-			btnParse.Click += SaveRibbonButton_Click;
+			btnParse.Click += btnParse_Click;
 			rgpDating.Items.Add(btnParse);
 
 			var btnLookupProfile = new System.Windows.Controls.Ribbon.RibbonButton() { Label = "Lookup Profile" };
 			btnLookupProfile.Click += btnLookupProfile_Click;
 			rgpDating.Items.Add(btnLookupProfile);
 
+
 			wbrMain.Source = new Uri(@"https:\\www.google.com");
 		}
 
-		void btnLookupProfile_Click(object sender, RoutedEventArgs e) {
-			throw new NotImplementedException();
-		}
-
-		void SaveRibbonButton_Click(object sender, RoutedEventArgs e) {
+		void btnParse_Click(object sender, RoutedEventArgs e) {
 			var Contact = Database.ContactedProfiles.FirstOrDefault(x => x.URL == wbrMain.Source.AbsoluteUri);
 			if (Contact != null && Contact.LastContacted < DateTime.Now.AddMinutes(-10)) {
 				MessageBox.Show("You have already contacted this person", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -73,6 +73,12 @@ namespace Relationship_Management_System.Forms {
 			}
 		}
 
+		void btnLookupProfile_Click(object sender, RoutedEventArgs e) {
+			throw new NotImplementedException();
+		}
+
+
+
 		private void UserControl_Unloaded(object sender, RoutedEventArgs e) {
 			ParentWindow.Ribbon.Items.Remove(MyRibbonTab);
 		}
@@ -88,6 +94,14 @@ namespace Relationship_Management_System.Forms {
 		private void btnForward_Click(object sender, RoutedEventArgs e) {
 
 		}
+
+		private void txtAddressBar_KeyDown(object sender, KeyEventArgs e) {
+			if (e.Key == Key.Enter) {
+				var URI = new Uri(txtAddressBar.Text);
+				wbrMain.Navigate(URI);
+			}
+		}
+
 
 	}
 }

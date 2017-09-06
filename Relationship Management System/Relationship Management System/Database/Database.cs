@@ -1,5 +1,6 @@
 namespace Relationship_Management_System.Database {
 	using System;
+	using System.ComponentModel.DataAnnotations.Schema;
 	using System.Data.Entity;
 	using System.Linq;
 
@@ -35,5 +36,22 @@ namespace Relationship_Management_System.Database {
 				return Settings.FirstOrDefault();
 			}
 		}
+
+
+		protected override void OnModelCreating(DbModelBuilder modelBuilder) {
+			//modelBuilder.Properties()
+			//	.Where(x =>
+			//		x.PropertyType.FullName.Equals("System.String") &&
+			//		!x.GetCustomAttributes(false).OfType<ColumnAttribute>().Where(q => q.TypeName != null && q.TypeName.Equals("varchar", StringComparison.InvariantCultureIgnoreCase)).Any())
+			//	.Configure(c =>
+			//		c.HasColumnType("varchar"));
+
+			//modelBuilder.Properties()
+			//	.Where(x => x.PropertyType.FullName.Equals("System.String"))
+			//	.Configure(c =>	c.HasColumnType("varchar"));
+
+		}
+
+
 	}
 }

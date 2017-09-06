@@ -214,19 +214,17 @@
     <Compile Include="Migrations\201708251634415_Updated ProCon.Designer.cs">
       <DependentUpon>201708251634415_Updated ProCon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709062215044_test.cs" />
+    <Compile Include="Migrations\201709062215044_test.Designer.cs">
+      <DependentUpon>201709062215044_test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709062231035_Ttest2.cs" />
+    <Compile Include="Migrations\201709062231035_Ttest2.Designer.cs">
+      <DependentUpon>201709062231035_Ttest2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Migrations\201708200014559_InitialCreate.resx">
       <DependentUpon>201708200014559_InitialCreate.cs</DependentUpon>
@@ -255,9 +253,11 @@
     <EmbeddedResource Include="Migrations\201708251634415_Updated ProCon.resx">
       <DependentUpon>201708251634415_Updated ProCon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Migrations\201709062215044_test.resx">
+      <DependentUpon>201709062215044_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709062231035_Ttest2.resx">
+      <DependentUpon>201709062231035_Ttest2.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\..\Project Plans.docx">
       <Link>Project Plans.docx</Link>
@@ -267,10 +267,6 @@
     <None Include="Properties\DataSources\Relationship_Management_System.Database.Location.datasource" />
     <None Include="Properties\DataSources\Relationship_Management_System.Database.PersonalDetail.datasource" />
     <None Include="Properties\DataSources\Relationship_Management_System.Database.ProCon.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

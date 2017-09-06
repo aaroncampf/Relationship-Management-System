@@ -34,6 +34,10 @@ namespace Relationship_Management_System {
 
 		private void btnTest_Click(object sender, RoutedEventArgs e) {
 			//ViewWindow.Content = new Forms.TestUserControl();
+
+			var db = new Database.Database();
+			db.Interests.Any(x => x.Name == "Test");
+
 		}
 
 		private void btnContacts_Click(object sender, RoutedEventArgs e) {

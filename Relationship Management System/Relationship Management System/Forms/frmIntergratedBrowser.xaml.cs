@@ -29,6 +29,8 @@ namespace Relationship_Management_System.Forms {
 		}
 
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) {
+			MessageBox.Show("Upgrade to use https://cefsharp.github.io/");
+
 			ParentWindow = Window.GetWindow(this) as MainWindow;
 			MyRibbonTab = new System.Windows.Controls.Ribbon.RibbonTab() { Header = "Embedded Browser" };
 			ParentWindow.Ribbon.Items.Add(MyRibbonTab);

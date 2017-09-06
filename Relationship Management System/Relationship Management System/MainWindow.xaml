@@ -21,6 +21,7 @@
                     <RibbonButton x:Name="btnLocations" Label="Locations" Click="btnLocations_Click"/>
                     <RibbonButton x:Name="btnProCon" Label="Pros/Cons" Click="btnProCon_Click" />
                     <RibbonButton x:Name="btnTest" Label="Test" Click="btnTest_Click" />
+                    <RibbonButton x:Name="btnIntergratedBrowser" Label="Intergrated Browser" Click="btnIntergratedBrowser_Click" />
                 </RibbonGroup>
             </RibbonTab>
             <RibbonTab Header="Test">

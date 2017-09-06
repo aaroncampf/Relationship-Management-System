@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Relationship_Management_System.Forms"
         xmlns:classes="clr-namespace:Relationship_Management_System.Classes"
 		xmlns:database="clr-namespace:Relationship_Management_System.Database"
-        mc:Ignorable="d" d:DesignWidth="858.397" d:DesignHeigh="245.028" >
+        mc:Ignorable="d" d:DesignWidth="858.397" d:DesignHeigh="245.028">
 
 
     <UserControl.Resources>

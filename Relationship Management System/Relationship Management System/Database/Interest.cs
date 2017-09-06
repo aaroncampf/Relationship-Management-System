@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 namespace Relationship_Management_System.Database {
 	public class Interest {
 		public int Id { get; set; }
-		[StringLength(50)]
 		public string Name { get; set; }
 		public string Message { get; set; }
-
-
 	}
 }

@@ -21,19 +21,13 @@ namespace Relationship_Management_System.Forms {
 	/// </summary>
 	public partial class frmGenerateMessage : Window {
 		Database.Database Database = new Database.Database();
-		
+
 		public frmGenerateMessage() {
 			InitializeComponent();
 		}
 
 		private void txtURL_TextChanged(object sender, TextChangedEventArgs e) {
-
-			var Test = Database.ContactedProfiles.Where(x => x.URL == txtURL.Text).ToString();
-
 			var Contact = Database.ContactedProfiles.FirstOrDefault(x => x.URL == txtURL.Text);
-
-
-
 
 			if (Contact != null && Contact.LastContacted < DateTime.Now.AddMinutes(-10)) {
 				MessageBox.Show("You have already contacted this person", "Error", MessageBoxButton.OK, MessageBoxImage.Error);

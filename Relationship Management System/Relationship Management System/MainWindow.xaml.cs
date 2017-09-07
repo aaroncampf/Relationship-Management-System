@@ -59,5 +59,10 @@ namespace Relationship_Management_System {
 			var Form = new Forms.frmIntergratedBrowser();
 			ViewWindow.Content = Form;
 		}
+
+		private void btnIntergratedBrowser_Click2(object sender, RoutedEventArgs e) {
+			var Form = new Forms.frmBrowser();
+			ViewWindow.Content = Form;
+		}
 	}
 }

@@ -170,7 +170,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\IsNothingConverter.cs" />
-    <Compile Include="Classes\IStringVisitor_Implimentation.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Database\Contact.cs" />
     <Compile Include="Database\Database.cs" />

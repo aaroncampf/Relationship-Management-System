@@ -39,7 +39,16 @@ namespace Relationship_Management_System.Forms {
 
 		private void wbrMain_FrameLoadEnd(object sender, CefSharp.FrameLoadEndEventArgs e) {
 			if (e.Frame.IsMain) {
+				var HTMLGetter = new Relationship_Management_System.Classes.IStringVisitor_Implimentation();
+				e.Frame.Browser.MainFrame.GetSource(HTMLGetter);
 
+				string Test;
+				e.Frame.Browser.MainFrame.GetSourceAsync().ContinueWith(x => {
+					Test = x;
+				}).RunSynchronously();
+
+				var test = HTMLGetter.Value;
+				test.ToString();
 			}
 		}
 	}

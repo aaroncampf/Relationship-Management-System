@@ -11,7 +11,6 @@ namespace Relationship_Management_System.Database {
 		//[MaxLength(4000)]
 		public string Name { get; set; }
 		//[MaxLength(4000)]
-		public string Name { get; set; }
 		public string Message { get; set; }
 	}
 }

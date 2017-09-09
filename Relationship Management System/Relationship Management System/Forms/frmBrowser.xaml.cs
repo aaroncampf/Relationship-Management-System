@@ -25,13 +25,6 @@ namespace Relationship_Management_System.Forms {
 		private void UserControl_Loaded(object sender, RoutedEventArgs e) {
 
 
-			var HTMLGetter = new Relationship_Management_System.Classes.IStringVisitor_Implimentation();
-			wbrMain.GetBrowser().MainFrame.GetSource(HTMLGetter);
-
-			var test = HTMLGetter.Value;
-			test.ToString();
-
-
 
 			//wbrMain.Address;
 			//wbrMain.GetBrowser().go
@@ -39,16 +32,11 @@ namespace Relationship_Management_System.Forms {
 
 		private void wbrMain_FrameLoadEnd(object sender, CefSharp.FrameLoadEndEventArgs e) {
 			if (e.Frame.IsMain) {
-				var HTMLGetter = new Relationship_Management_System.Classes.IStringVisitor_Implimentation();
-				e.Frame.Browser.MainFrame.GetSource(HTMLGetter);
-
 				string Test;
 				e.Frame.Browser.MainFrame.GetSourceAsync().ContinueWith(x => {
-					Test = x;
+					Test = x.Result;
 				}).RunSynchronously();
 
-				var test = HTMLGetter.Value;
-				test.ToString();
 			}
 		}
 	}

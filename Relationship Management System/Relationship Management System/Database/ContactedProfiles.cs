@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-<<<<<<< HEAD
-=======
 using System.ComponentModel.DataAnnotations.Schema;
->>>>>>> origin/master
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;

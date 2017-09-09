@@ -20,6 +20,9 @@ namespace Relationship_Management_System {
 	public partial class MainWindow : Window {
 		public MainWindow() {
 			InitializeComponent();
+
+			//var db = new Database.Database();
+			//db.Database.Create();
 		}
 
 		private void btnEditInterests1_Click(object sender, RoutedEventArgs e) {

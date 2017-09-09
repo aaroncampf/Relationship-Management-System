@@ -35,7 +35,7 @@ namespace Relationship_Management_System.Forms {
 				string Test;
 				e.Frame.Browser.MainFrame.GetSourceAsync().ContinueWith(x => {
 					Test = x.Result;
-				}).RunSynchronously();
+				});
 
 			}
 		}

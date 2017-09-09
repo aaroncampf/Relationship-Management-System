@@ -34,6 +34,10 @@ namespace Relationship_Management_System {
 
 		private void btnTest_Click(object sender, RoutedEventArgs e) {
 			//ViewWindow.Content = new Forms.TestUserControl();
+
+			var db = new Database.Database();
+			db.Interests.Any(x => x.Name == "Test");
+
 		}
 
 		private void btnContacts_Click(object sender, RoutedEventArgs e) {
@@ -48,6 +52,16 @@ namespace Relationship_Management_System {
 
 		private void btnProCon_Click(object sender, RoutedEventArgs e) {
 			var Form = new Forms.frmProCon();
+			ViewWindow.Content = Form;
+		}
+
+		private void btnIntergratedBrowser_Click(object sender, RoutedEventArgs e) {
+			var Form = new Forms.frmIntergratedBrowser();
+			ViewWindow.Content = Form;
+		}
+
+		private void btnIntergratedBrowser_Click2(object sender, RoutedEventArgs e) {
+			var Form = new Forms.frmBrowser();
 			ViewWindow.Content = Form;
 		}
 	}

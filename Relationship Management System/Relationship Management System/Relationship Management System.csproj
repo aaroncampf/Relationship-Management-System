@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.props" Condition="Exists('..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.props')" />
+  <Import Project="..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -30,6 +32,7 @@
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>false</BootstrapperEnabled>
+    <NuGetPackageImportStamp>5373a608</NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -51,7 +54,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>A3AEE3BFE04033D243E812D17EBB4D6417DB3B41</ManifestCertificateThumbprint>
@@ -61,6 +64,26 @@
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aaron.Reports">
@@ -110,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Forms\frmBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\frmContacts.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +181,9 @@
     <Compile Include="Database\RelationshipState.cs" />
     <Compile Include="Database\Setting.cs" />
     <Compile Include="Database\SocialLink.cs" />
+    <Compile Include="Forms\frmBrowser.xaml.cs">
+      <DependentUpon>frmBrowser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmContacts.xaml.cs">
       <DependentUpon>frmContacts.xaml</DependentUpon>
     </Compile>
@@ -178,87 +208,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201708200014559_InitialCreate.cs" />
-    <Compile Include="Migrations\201708200014559_InitialCreate.Designer.cs">
-      <DependentUpon>201708200014559_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708200037278_Added ContactedProfiles.cs" />
-    <Compile Include="Migrations\201708200037278_Added ContactedProfiles.Designer.cs">
-      <DependentUpon>201708200037278_Added ContactedProfiles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708200232045_Added Message field.cs" />
-    <Compile Include="Migrations\201708200232045_Added Message field.Designer.cs">
-      <DependentUpon>201708200232045_Added Message field.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708220253571_Added stuff from woek.cs" />
-    <Compile Include="Migrations\201708220253571_Added stuff from woek.Designer.cs">
-      <DependentUpon>201708220253571_Added stuff from woek.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708220302342_Added settings.cs" />
-    <Compile Include="Migrations\201708220302342_Added settings.Designer.cs">
-      <DependentUpon>201708220302342_Added settings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708222117104_Added Column.cs" />
-    <Compile Include="Migrations\201708222117104_Added Column.Designer.cs">
-      <DependentUpon>201708222117104_Added Column.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708231642122_Added tables and columns.cs" />
-    <Compile Include="Migrations\201708231642122_Added tables and columns.Designer.cs">
-      <DependentUpon>201708231642122_Added tables and columns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708231948553_Added Columns.cs" />
-    <Compile Include="Migrations\201708231948553_Added Columns.Designer.cs">
-      <DependentUpon>201708231948553_Added Columns.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708251634415_Updated ProCon.cs" />
-    <Compile Include="Migrations\201708251634415_Updated ProCon.Designer.cs">
-      <DependentUpon>201708251634415_Updated ProCon.cs</DependentUpon>
+    <Compile Include="Migrations\201709062235125_Initial Create.cs" />
+    <Compile Include="Migrations\201709062235125_Initial Create.Designer.cs">
+      <DependentUpon>201709062235125_Initial Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Migrations\201708200014559_InitialCreate.resx">
-      <DependentUpon>201708200014559_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708200037278_Added ContactedProfiles.resx">
-      <DependentUpon>201708200037278_Added ContactedProfiles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708200232045_Added Message field.resx">
-      <DependentUpon>201708200232045_Added Message field.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708220253571_Added stuff from woek.resx">
-      <DependentUpon>201708220253571_Added stuff from woek.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708220302342_Added settings.resx">
-      <DependentUpon>201708220302342_Added settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708222117104_Added Column.resx">
-      <DependentUpon>201708222117104_Added Column.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708231642122_Added tables and columns.resx">
-      <DependentUpon>201708231642122_Added tables and columns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708231948553_Added Columns.resx">
-      <DependentUpon>201708231948553_Added Columns.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708251634415_Updated ProCon.resx">
-      <DependentUpon>201708251634415_Updated ProCon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="..\..\Project Plans.docx">
       <Link>Project Plans.docx</Link>
     </None>
@@ -267,11 +224,6 @@
     <None Include="Properties\DataSources\Relationship_Management_System.Database.Location.datasource" />
     <None Include="Properties\DataSources\Relationship_Management_System.Database.PersonalDetail.datasource" />
     <None Include="Properties\DataSources\Relationship_Management_System.Database.ProCon.datasource" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Relationship Management System_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -282,11 +234,21 @@
       <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201709062235125_Initial Create.resx">
+      <DependentUpon>201709062235125_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -296,4 +258,19 @@
     if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
     xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
   </PropertyGroup>
+  <Import Project="..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets" Condition="Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.2987.1601\build\cef.redist.x86.targets'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.targets'))" />
+  </Target>
+  <Import Project="..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" />
+  <Import Project="..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.57.0.0\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.targets" Condition="Exists('..\packages\CefSharp.Wpf.57.0.0\build\CefSharp.Wpf.targets')" />
 </Project>

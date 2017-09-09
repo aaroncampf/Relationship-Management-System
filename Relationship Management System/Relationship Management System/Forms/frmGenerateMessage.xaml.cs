@@ -28,6 +28,7 @@ namespace Relationship_Management_System.Forms {
 
 		private void txtURL_TextChanged(object sender, TextChangedEventArgs e) {
 			var Contact = Database.ContactedProfiles.FirstOrDefault(x => x.URL == txtURL.Text);
+
 			if (Contact != null && Contact.LastContacted < DateTime.Now.AddMinutes(-10)) {
 				MessageBox.Show("You have already contacted this person", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}

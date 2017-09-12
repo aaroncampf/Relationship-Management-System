@@ -44,6 +44,11 @@ namespace Relationship_Management_System.Forms {
 		}
 
 		void btnGenerateMessage_Click(object sender, RoutedEventArgs e) {
+			if (HTML == null) {
+				MessageBox.Show("No HTML is currently loaded");
+				return;
+			}
+
 			var Contact = Database.ContactedProfiles.FirstOrDefault(x => x.URL == wbrMain.Address);
 
 			if (Contact != null && Contact.LastContacted < DateTime.Now.AddMinutes(-10)) {

@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Relationship_Management_System.Classes {
-	public class Message {
+	public class Message_Old {
 		private string HTML;
 		private List<Interest> Interests = new List<Interest>();
 
-		public Message(string HTML, List<Interest> Interests) {
-			this.HTML = HTML.ToLower();
+		public Message_Old(string URL, List<Interest> Interests) {
+			this.HTML = GetHTML(URL).ToLower();
 			this.Interests = Interests;
 		}
 
-		public string GetResponse() {
+		public string GetResponce() {
 			var SourceText = ExtractText(HTML.ToLower());
 			var Matches = new List<Interest>();
 			foreach (var item in Interests) {
@@ -65,6 +65,33 @@ namespace Relationship_Management_System.Classes {
 			}
 
 			return String.Join(" ", chunks);
+		}
+
+		private string GetHTML(string urlAddress) {
+			HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
+			HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+			if (response.StatusCode == HttpStatusCode.OK) {
+				Stream receiveStream = response.GetResponseStream();
+				StreamReader readStream = null;
+
+				if (response.CharacterSet == null) {
+					readStream = new StreamReader(receiveStream);
+				}
+				else {
+					readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+				}
+
+				string data = readStream.ReadToEnd();
+
+				response.Close();
+				readStream.Close();
+
+				return data;
+			}
+			else {
+				return null;
+			}
 		}
 	}
 }

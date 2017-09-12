@@ -60,7 +60,7 @@ namespace Relationship_Management_System.Forms {
 				Uri uriResult;
 				bool result = Uri.TryCreate(wbrMain.Source.AbsoluteUri, UriKind.RelativeOrAbsolute, out uriResult);
 				if (result) {
-					var Message = new Classes.Message(wbrMain.Source.AbsoluteUri, Database.Interests.ToList());
+					var Message = new Classes.Message_Old(wbrMain.Source.AbsoluteUri, Database.Interests.ToList());
 					if (Contact == null) {
 						Database.ContactedProfiles.Add(new Database.ContactedProfiles() { URL = wbrMain.Source.AbsoluteUri, LastContacted = DateTime.Now });
 

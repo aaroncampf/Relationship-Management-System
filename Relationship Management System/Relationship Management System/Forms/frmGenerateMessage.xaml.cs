@@ -36,7 +36,7 @@ namespace Relationship_Management_System.Forms {
 				Uri uriResult;
 				bool result = Uri.TryCreate(txtURL.Text, UriKind.RelativeOrAbsolute, out uriResult);
 				if (result) {
-					var Message = new Classes.Message(txtURL.Text, Database.Interests.ToList());
+					var Message = new Classes.Message_Old(txtURL.Text, Database.Interests.ToList());
 					if (Contact == null) {
 						Database.ContactedProfiles.Add(new Database.ContactedProfiles() { URL = txtURL.Text, LastContacted = DateTime.Now });
 

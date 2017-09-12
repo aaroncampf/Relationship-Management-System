@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Classes\IsNothingConverter.cs" />
     <Compile Include="Classes\Message.cs" />
+    <Compile Include="Classes\Message_Old.cs" />
     <Compile Include="Database\Contact.cs" />
     <Compile Include="Database\Database.cs" />
     <Compile Include="Database\ContactedProfiles.cs" />

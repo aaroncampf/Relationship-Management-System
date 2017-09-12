@@ -5,10 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:cefSharp="clr-namespace:CefSharp.Wpf;assembly=CefSharp.Wpf"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
+             d:DesignHeight="300" Loaded="UserControl_Loaded" d:DeignWidth="399">
     <Grid>
         <cefSharp:ChromiumWebBrowser x:Name="wbrMain" Grid.Row="0" Address="https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions" FrameLoadEnd="wbrMain_FrameLoadEnd" Margin="0,28,0,0" FrameLoadStart="wbrMain_FrameLoadStart" />
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="243"/>
-        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="248,1,0,0" VerticalAlignment="Top" Width="52" Click="txtGo_Click"/>
+        <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="248,1,0,0" VerticalAlignment="Top" Width="52" Click="btnGo_Click"/>
+        <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="305,1,0,0" VerticalAlignment="Top" Width="84" Click="btnRefresh_Click" />
     </Grid>
 </UserControl>

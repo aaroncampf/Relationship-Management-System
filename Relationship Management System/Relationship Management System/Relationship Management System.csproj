@@ -172,16 +172,6 @@
     <Compile Include="Classes\IsNothingConverter.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\Message_Old.cs" />
-    <Compile Include="Database\Contact.cs" />
-    <Compile Include="Database\Database.cs" />
-    <Compile Include="Database\ContactedProfiles.cs" />
-    <Compile Include="Database\Interest.cs" />
-    <Compile Include="Database\Location.cs" />
-    <Compile Include="Database\PersonalDetail.cs" />
-    <Compile Include="Database\ProsCons.cs" />
-    <Compile Include="Database\RelationshipState.cs" />
-    <Compile Include="Database\Setting.cs" />
-    <Compile Include="Database\SocialLink.cs" />
     <Compile Include="Forms\frmBrowser.xaml.cs">
       <DependentUpon>frmBrowser.xaml</DependentUpon>
     </Compile>
@@ -209,11 +199,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201709062235125_Initial Create.cs" />
-    <Compile Include="Migrations\201709062235125_Initial Create.Designer.cs">
-      <DependentUpon>201709062235125_Initial Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -247,9 +232,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709062235125_Initial Create.resx">
-      <DependentUpon>201709062235125_Initial Create.cs</DependentUpon>
-    </EmbeddedResource>
+    <ProjectReference Include="..\Backend\Backend.csproj">
+      <Project>{d590d920-1f2b-48c8-8e91-eec60398c098}</Project>
+      <Name>Backend</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

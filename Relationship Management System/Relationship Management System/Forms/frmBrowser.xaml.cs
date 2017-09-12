@@ -79,8 +79,12 @@ namespace Relationship_Management_System.Forms {
 			}
 		}
 
-		private void txtGo_Click(object sender, RoutedEventArgs e) {
+		private void btnGo_Click(object sender, RoutedEventArgs e) {
 			wbrMain.Load(txtAddress.Text);
+		}
+
+		private void btnRefresh_Click(object sender, RoutedEventArgs e) {
+			wbrMain.Load(wbrMain.Address);
 		}
 	}
 }

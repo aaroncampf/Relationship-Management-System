@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" Loaded="UserControl_Loaded" d:DesignWidth="650">
     <Grid>
-        <cefSharp:ChromiumWebBrowser x:Name="wbrMain" Grid.Row="0" Address="https://github.com/cefsharp/CefSharp/wiki/Frequently-asked-questions" FrameLoadEnd="wbrMain_FrameLoadEnd" Margin="0,28,0,0" FrameLoadStart="wbrMain_FrameLoadStart" />
+        <cefSharp:ChromiumWebBrowser x:Name="wbrMain" Grid.Row="0" Address="https://www.okcupid.com/match" FrameLoadEnd="wbrMain_FrameLoadEnd" Margin="0,28,0,0" FrameLoadStart="wbrMain_FrameLoadStart" />
         <TextBox x:Name="txtAddress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="243"/>
         <Button x:Name="btnGo" Content="Go" HorizontalAlignment="Left" Margin="248,1,0,0" VerticalAlignment="Top" Width="52" Click="btnGo_Click"/>
         <Button x:Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="305,1,0,0" VerticalAlignment="Top" Width="84" Click="btnRefresh_Click" />

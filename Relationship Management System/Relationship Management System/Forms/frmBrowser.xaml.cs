@@ -86,5 +86,13 @@ namespace Relationship_Management_System.Forms {
 		private void btnRefresh_Click(object sender, RoutedEventArgs e) {
 			wbrMain.Load(wbrMain.Address);
 		}
+
+		private void btnBack_Click(object sender, RoutedEventArgs e) {
+			wbrMain.GetBrowser().GoBack();
+		}
+
+		private void btnForward_Click(object sender, RoutedEventArgs e) {
+			wbrMain.GetBrowser().GoForward();
+		}
 	}
 }

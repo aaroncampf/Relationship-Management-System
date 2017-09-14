@@ -20,7 +20,7 @@ namespace Relationship_Management_System {
 				CefSharp.CefSettings settings = new CefSharp.CefSettings();
 
 				if (!System.IO.Directory.Exists(System.IO.Directory.GetCurrentDirectory() + @"\CefSharp_Cache")) {
-					System.IO.Directory.Create(System.IO.Directory.GetCurrentDirectory() + @"\CefSharp_Cache");
+					System.IO.Directory.CreateDirectory(System.IO.Directory.GetCurrentDirectory() + @"\CefSharp_Cache");
 				}
 
 				settings.CachePath = System.IO.Directory.GetCurrentDirectory() + @"\CefSharp_Cache";

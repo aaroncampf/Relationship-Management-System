@@ -22,7 +22,9 @@ namespace Relationship_Management_System.Forms {
 		private MainWindow ParentWindow;
 		Database.Database Database = new Database.Database();
 
-		private string HTML;
+		//private string HTML;
+
+		Classes.StringVisitor_Class StringGetter = new Classes.StringVisitor_Class();
 
 		public frmBrowser() {
 			InitializeComponent();
@@ -44,7 +46,7 @@ namespace Relationship_Management_System.Forms {
 		}
 
 		void btnGenerateMessage_Click(object sender, RoutedEventArgs e) {
-			if (HTML == null) {
+			if (StringGetter.Data == null) {
 				MessageBox.Show("No HTML is currently loaded");
 				return;
 			}
@@ -55,7 +57,7 @@ namespace Relationship_Management_System.Forms {
 				MessageBox.Show("You have already contacted this person", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 			}
 			else {
-				var Message = new Classes.Message(wbrMain.Address, Database.Interests.ToList());
+				var Message = new Classes.Message(StringGetter.Data, Database.Interests.ToList());
 				if (Contact == null) {
 					Database.ContactedProfiles.Add(new Database.ContactedProfiles() { URL = wbrMain.Address, LastContacted = DateTime.Now });
 				}
@@ -68,15 +70,29 @@ namespace Relationship_Management_System.Forms {
 			}
 		}
 		private void wbrMain_FrameLoadStart(object sender, CefSharp.FrameLoadStartEventArgs e) {
-			HTML = null;
+			//HTML = null;
+			wbrMain.GetBrowser().MainFrame.GetText(StringGetter);
+
+
+			//if (e.Frame.IsMain) {
+			//	e.Frame.Browser.MainFrame.GetSourceAsync().ContinueWith(x => {
+			//		string Result = x.Result;
+			//		if (!string.IsNullOrEmpty(Result)) {
+			//			HTML = x.Result;						
+			//		}
+			//	});
+			//}
 		}
 
 		private void wbrMain_FrameLoadEnd(object sender, CefSharp.FrameLoadEndEventArgs e) {
-			if (e.Frame.IsMain) {
-				e.Frame.Browser.MainFrame.GetSourceAsync().ContinueWith(x => {
-					HTML = x.Result;
-				});
-			}
+			//if (e.Frame.IsMain) {
+			//	e.Frame.Browser.MainFrame.GetSourceAsync().ContinueWith(x => {
+			//		string Result = x.Result;
+			//		if (!string.IsNullOrEmpty(Result)) {
+			//			HTML = x.Result;
+			//		}
+			//	});
+			//}
 		}
 
 		private void btnGo_Click(object sender, RoutedEventArgs e) {

@@ -172,6 +172,7 @@
     <Compile Include="Classes\IsNothingConverter.cs" />
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Classes\Message_Old.cs" />
+    <Compile Include="Classes\StringVisitor_Class.cs" />
     <Compile Include="Forms\frmBrowser.xaml.cs">
       <DependentUpon>frmBrowser.xaml</DependentUpon>
     </Compile>

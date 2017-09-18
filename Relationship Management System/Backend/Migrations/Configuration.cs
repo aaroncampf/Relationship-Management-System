@@ -22,7 +22,8 @@ namespace Relationship_Management_System.Migrations {
 			context.Interests.AddOrUpdate(
 				new Interest() { Name = "anime", Message = "I see that you like to watch anime, which shows are your favorite, I think mine is currently Spice and Wolf?" },
 				new Interest() { Name = "Lord of the Rings", Message = "You like Lord of the Rings, I feel the movies didn't do the plot justice, so I want to read The Silmarillion some day" },
-				new Interest() { Name = "volunteer", Message = "I volunteer at Mentorship Saturdays every Saturday where I help people learn to program and progess in there careers" }
+				new Interest() { Name = "volunteer", Message = "I volunteer at Mentorship Saturdays every Saturday where I help people learn to program and progess in there careers" },
+				new Interest() { Name = "books", Message = "I see that you like books, I am a huge fan of Dune and The Wheel of time!" }
 			);
 
 			//context.People.AddOrUpdate(
